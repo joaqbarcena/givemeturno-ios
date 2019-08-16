@@ -10,11 +10,33 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var userIdTextField: UITextField!
+    @IBOutlet weak var resultLabel: UILabel!
+    var userId:String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        userId = UserDefaults.standard.string(forKey: "userId")
+        if userId != nil {
+            userIdTextField.text = userId
+        }
     }
-
-
+    
+    //MARK: Actions, the only one xd
+    
+    @IBAction func getReservation(_ sender: UIButton) {
+        if let text = userIdTextField.text {
+            if !text.isEmpty {
+                userId = text
+                UserDefaults.standard.set(userId, forKey: "userId")
+                getUNCReservation(userId!, resultCallback: {
+                    (alert) -> Void in
+                    DispatchQueue.main.async {
+                        self.resultLabel.text = alert
+                    }
+                })
+            }
+        }
+    }
 }
 

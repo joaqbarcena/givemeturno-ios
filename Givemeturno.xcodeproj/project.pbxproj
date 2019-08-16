@@ -14,6 +14,7 @@
 		D286CB6B23061C7E0085FE2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D286CB6923061C7E0085FE2D /* LaunchScreen.storyboard */; };
 		D286CB7623061C7E0085FE2D /* GivemeturnoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286CB7523061C7E0085FE2D /* GivemeturnoTests.swift */; };
 		D286CB8123061C7E0085FE2D /* GivemeturnoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286CB8023061C7E0085FE2D /* GivemeturnoUITests.swift */; };
+		D286CB8F2306481A0085FE2D /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286CB8E2306481A0085FE2D /* ReservationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		D286CB7C23061C7E0085FE2D /* GivemeturnoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GivemeturnoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D286CB8023061C7E0085FE2D /* GivemeturnoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GivemeturnoUITests.swift; sourceTree = "<group>"; };
 		D286CB8223061C7E0085FE2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D286CB8E2306481A0085FE2D /* ReservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				D286CB6723061C7E0085FE2D /* Assets.xcassets */,
 				D286CB6923061C7E0085FE2D /* LaunchScreen.storyboard */,
 				D286CB6C23061C7E0085FE2D /* Info.plist */,
+				D286CB8E2306481A0085FE2D /* ReservationService.swift */,
 			);
 			path = Givemeturno;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D286CB8F2306481A0085FE2D /* ReservationService.swift in Sources */,
 				D286CB6323061C7C0085FE2D /* ViewController.swift in Sources */,
 				D286CB6123061C7C0085FE2D /* AppDelegate.swift in Sources */,
 			);
