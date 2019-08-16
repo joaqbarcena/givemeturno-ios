@@ -29,7 +29,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="toW-9a-pCk">
                                         <rect key="frame" x="0.0" y="38" width="288" height="30"/>
-                                        <state key="normal" title="Go and get my f@cking turno, Thx"/>
+                                        <state key="normal" title="Go and get my turno 🙌, 👀"/>
                                         <connections>
                                             <action selector="getReservation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3DK-1N-5vJ"/>
                                         </connections>
