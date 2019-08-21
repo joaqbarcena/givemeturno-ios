@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LJz-my-IV5">
-                                <rect key="frame" x="16" y="60" width="288" height="100"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="LJz-my-IV5">
+                                <rect key="frame" x="16" y="60" width="288" height="312"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="El codigo de atras de la credencial" textAlignment="natural" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="A40-9M-LGG">
                                         <rect key="frame" x="0.0" y="0.0" width="288" height="30"/>
@@ -34,8 +34,24 @@
                                             <action selector="getReservation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3DK-1N-5vJ"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="&lt;=== Resultado ===&gt;" textAlignment="center" lineBreakMode="clip" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2R-np-Dgc">
-                                        <rect key="frame" x="0.0" y="76" width="288" height="24"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rfJ-CM-C1S">
+                                        <rect key="frame" x="0.0" y="76" width="288" height="128"/>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Captcha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bvb-je-k8U">
+                                        <rect key="frame" x="0.0" y="212" width="288" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="go" enablesReturnKeyAutomatically="YES"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1c2-0s-qDo">
+                                        <rect key="frame" x="0.0" y="250" width="288" height="30"/>
+                                        <state key="normal" title="Go to captcha!"/>
+                                        <connections>
+                                            <action selector="sendCaptcha:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J4V-eD-0ms"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="&lt;=== Resultado ===&gt;" textAlignment="center" lineBreakMode="clip" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2R-np-Dgc">
+                                        <rect key="frame" x="0.0" y="288" width="288" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -52,6 +68,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="captchaButton" destination="1c2-0s-qDo" id="rYt-l5-gwl"/>
+                        <outlet property="captchaImage" destination="rfJ-CM-C1S" id="t25-Gq-9V1"/>
+                        <outlet property="captchaTextField" destination="Bvb-je-k8U" id="Wb5-n6-FzA"/>
                         <outlet property="resultLabel" destination="q2R-np-Dgc" id="A6Q-4r-Iwr"/>
                         <outlet property="userIdTextField" destination="A40-9M-LGG" id="94X-hZ-xp1"/>
                     </connections>

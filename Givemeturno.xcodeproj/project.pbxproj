@@ -15,6 +15,7 @@
 		D286CB7623061C7E0085FE2D /* GivemeturnoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286CB7523061C7E0085FE2D /* GivemeturnoTests.swift */; };
 		D286CB8123061C7E0085FE2D /* GivemeturnoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286CB8023061C7E0085FE2D /* GivemeturnoUITests.swift */; };
 		D286CB8F2306481A0085FE2D /* ReservationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D286CB8E2306481A0085FE2D /* ReservationService.swift */; };
+		D2B878BF230D1C2A003FFB34 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2B878BE230D1C2A003FFB34 /* Result.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D286CB8023061C7E0085FE2D /* GivemeturnoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GivemeturnoUITests.swift; sourceTree = "<group>"; };
 		D286CB8223061C7E0085FE2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D286CB8E2306481A0085FE2D /* ReservationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationService.swift; sourceTree = "<group>"; };
+		D2B878BE230D1C2A003FFB34 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			children = (
 				D286CB6023061C7C0085FE2D /* AppDelegate.swift */,
 				D286CB6223061C7C0085FE2D /* ViewController.swift */,
+				D2B878BE230D1C2A003FFB34 /* Result.swift */,
 				D286CB6423061C7C0085FE2D /* Main.storyboard */,
 				D286CB6723061C7E0085FE2D /* Assets.xcassets */,
 				D286CB6923061C7E0085FE2D /* LaunchScreen.storyboard */,
@@ -261,6 +264,7 @@
 			files = (
 				D286CB8F2306481A0085FE2D /* ReservationService.swift in Sources */,
 				D286CB6323061C7C0085FE2D /* ViewController.swift in Sources */,
+				D2B878BF230D1C2A003FFB34 /* Result.swift in Sources */,
 				D286CB6123061C7C0085FE2D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
