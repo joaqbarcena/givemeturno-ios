@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     
     var infoLogin:[String:String]?
     var userId:String?
+    var isCookieRestored:Bool=false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,15 +26,25 @@ class ViewController: UIViewController {
         if userId != nil {
             userIdTextField.text = userId
         }
+        isCookieRestored = restoreCookies()
     }
     
     //MARK: Actions, the only one xd
+    @IBAction func cleanCookies(_ sender: UIButton) {
+        delCookies()
+        isCookieRestored=false
+        infoLogin=nil
+    }
     
-    @IBAction func sendCaptcha(_ sender: UIButton) {
-        guard let text = captchaTextField.text,
-            !text.isEmpty else {
-            self.resultLabel.text = "Captcha vacio"
-            return
+    @IBAction func sendCaptcha(_ sender: UIButton?) {
+        var text = ""
+        if sender != nil {
+            guard let texts = captchaTextField.text,
+                !texts.isEmpty else {
+                self.resultLabel.text = "Captcha vacio"
+                return
+            }
+            text = texts
         }
         guard var infoLogin = infoLogin else {
             self.resultLabel.text = "Info login nulo"
@@ -43,9 +54,18 @@ class ViewController: UIViewController {
         getUNCReservationAfterCaptcha(userId: userId!, dic:infoLogin){
             alert in
             DispatchQueue.main.async {
+                if alert.range(of: "error", options: .caseInsensitive) == nil &&
+                    alert.range(of: "incompleto") == nil {
+                    self.storeCookies(and:infoLogin)
+                    self.isCookieRestored = true
+                } else {
+                    self.delCookies()
+                    self.isCookieRestored = false
+                    self.infoLogin = nil
+                }
                 self.resultLabel.text = alert
                 self.captchaImage.image = nil
-                self.infoLogin = nil
+                
                 self.captchaTextField.isEnabled = false
                 self.captchaButton.isEnabled = false
             }
@@ -54,6 +74,10 @@ class ViewController: UIViewController {
     
     @IBAction func getReservation(_ sender: UIButton) {
         if let text = userIdTextField.text {
+            if isCookieRestored {
+                sendCaptcha(nil)
+                return
+            }
             if !text.isEmpty {
                 userId = text
                 UserDefaults.standard.set(userId, forKey: "userId")
@@ -78,6 +102,47 @@ class ViewController: UIViewController {
                 })
             }
         }
+    }
+    
+    func storeCookies(and:[String:String]?) {
+        let cookiesStorage = HTTPCookieStorage.shared
+        let userDefaults = UserDefaults.standard
+        
+        let serverBaseUrl = "http://comedor.unc.edu.ar"
+        var cookieDict = [String : AnyObject]()
+        
+        for cookie in cookiesStorage.cookies(for: NSURL(string: serverBaseUrl)! as URL)! {
+            cookieDict[cookie.name] = cookie.properties as AnyObject?
+        }
+        
+        userDefaults.set(cookieDict, forKey: "cookiesKey")
+        userDefaults.set(and, forKey: "info")
+    }
+    
+    func delCookies() {
+        UserDefaults.standard.removeObject(forKey: "info")
+        UserDefaults.standard.removeObject(forKey: "cookiesKey")
+    }
+    
+    func restoreCookies() -> Bool {
+        let cookiesStorage = HTTPCookieStorage.shared
+        let userDefaults = UserDefaults.standard
+        var res = false
+        if let cookieDictionary = userDefaults.dictionary(forKey: "cookiesKey") {
+            
+            for (_, cookieProperties) in cookieDictionary {
+                if let cookie = HTTPCookie(properties: cookieProperties as! [HTTPCookiePropertyKey : Any] ) {
+                    res = true
+                    cookiesStorage.setCookie(cookie)
+                }
+            }
+            
+            if let infoL = userDefaults.dictionary(forKey: "info") as?
+                [String:String]? {
+                infoLogin = infoL
+            }
+        }
+        return res
     }
 }
 

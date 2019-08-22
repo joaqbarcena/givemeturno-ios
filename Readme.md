@@ -1,4 +1,11 @@
 # 🍅 🥑 GiveMeTurno 🍔 🍗
+## Update : 22/08 - 3:44 (jaja)
+Esto ultimamente se me volvio como una droga, que me hace negrear codigo como un campeon con tal que pueda reservar el turno, el 21 tiraron el server a las 8:05-15
+pero no piensan dar a torcer el brazo, le transmitieron las quejas de que el captcha era bastante ilegible y lo agrandaron, el 21 profundice en las sesiones del server
+y encontres que el campo `TOBA_SESSID` es el que rige la session del usuario i.e.
+si haces el captcha y guardas el `TOBA_SESSID` como cookie siempre, nunca (en teoria) deberias rehacer el captcha ya que esa session ya se "logueo" y aca esta el
+negrero resultado de eso
+
 ## Update : 20/08 
 Cerca del mediodia en login pusieron un captcha(lo cual esta bien), la idea es en el paso intermedio del login traer el captcha para resolverlo y que conitnue igual
 Tambien cambiaron partes de la pagina asi que hubieron modificaciones en el regex del parser
