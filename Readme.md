@@ -1,4 +1,6 @@
 # 🍅 🥑 GiveMeTurno 🍔 🍗
+# El desarrollo se mueve a la integracion con los repos de [UNCMorfi](https://github.com/joaqbarcena/UNCmorfi), ya que es inmantenible updatear 4 repos
+
 ## Update : 22/08 - 3:44 (jaja)
 Esto ultimamente se me volvio como una droga, que me hace negrear codigo como un campeon con tal que pueda reservar el turno, el 21 tiraron el server a las 8:05-15
 pero no piensan dar a torcer el brazo, le transmitieron las quejas de que el captcha era bastante ilegible y lo agrandaron, el 21 profundice en las sesiones del server
