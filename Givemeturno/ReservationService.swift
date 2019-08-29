@@ -147,7 +147,7 @@ private func parseWeb(page:String!, getAlert:Bool=false) -> [String:String] {
         if let alerts = page.findall(pattern: "<script language='JavaScript'>alert\\(.*;</script></div>"){
             for alert in alerts {
                 if let idxL = alert.range(of: "alert('"),
-                    let idxU = alert.range(of: "');") {
+                    let idxU = alert.range(of: ");") {
                     info["alert"] = String(alert[idxL.upperBound..<idxU.lowerBound])
                     break
                 }
